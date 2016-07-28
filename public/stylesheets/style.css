@@ -7,6 +7,19 @@ body {
 a {
   color: #0f1626;
 }
+
+button {
+  outline: none;
+  background-color: #ab987a;
+  color: #0f1626;
+  border: none;
+  text-align: left;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  text-indent: 10px;
+}
+
 .navbar.navbar-default {
   color: #f5f5f5;
   background-color: #0f1626;
@@ -33,29 +46,34 @@ a {
   width: 200px;
   list-style: none;
 }
+
 .sidebar-nav li {
-  text-indent: 20px;
   line-height: 50px;
 }
-.sidebar-nav li a {
-  display: block;
-  text-decoration: none;
-}
-.sidebar-nav li a:hover {
-  color: #f5f5f5;
+
+.sidebar-nav li button:hover {
   background-color: #0f1626;
-}
-.sidebar-nav li a:active, .sidebar-nav li a:focus {
   color: #f5f5f5;
-  background-color: #0f1626;
-  border-right-style: solid;
-  border-width: thick;
-  border-color: #ff533d;
-  text-decoration: none;
+  border-right: 4px solid #ff533d;
 }
 
 .sidebar-dropdown {
   list-style: none;
+  padding: 0;
+}
+
+.stay:hover,
+.stay:focus,
+.stay:active {
+  background-color: #0f1626;
+  color: #f5f5f5;
+  border-right: 4px solid #ff533d;
+}
+
+.enabled {
+  background-color: #0f1626;
+  color: #f5f5f5;
+  border-right: 4px solid #ff533d;
 }
 
 #sidebar-wrapper.sidebar-toggle {
