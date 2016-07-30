@@ -1,5 +1,4 @@
 app.controller('page-ctrl', function($scope, $http) {
-
 });
 
 app.directive('stay', function(){
