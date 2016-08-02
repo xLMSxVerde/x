@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 if(typeof require !== 'undefined') XLSX = require('xlsx');
-var XLSX = require('xlsx');
-var workbook = XLSX.readFile('public/data/fm/PorscheCup.ods');
+var workbook = XLSX.readFile('public/data/fm/TestCup.xlsx');
+/* DO SOMETHING WITH workbook HERE */
 var first_sheet_name = workbook.SheetNames[1];
 var address_of_cell = 'B2';
 
@@ -14,11 +14,19 @@ var desired_cell = worksheet[address_of_cell];
 
 /* Get the value */
 var desired_value = desired_cell.v;
-console.log(desired_value);
+var items = XLSX.utils.sheet_to_json(worksheet);
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index');
+});
+
+router.post('/', function(req, res, next) {
+  var navData = ["Serie1","Serie2","Serie3"];
+  var fmData = ["SerieFM"];
+  var pcData = ["SeriePC"];
+  res.json({navData: navData, fmData: fmData, pcData: pcData});
 });
 
 //*Get sideviews*/

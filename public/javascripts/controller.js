@@ -1,4 +1,14 @@
 app.controller('page-ctrl', function($scope, $http) {
+  $.ajax({
+    type: "POST",
+    url: '',
+    datatype: 'json',
+      success: function(response){
+        console.log(response.navData);
+        console.log(response.fmData);
+        console.log(response.pcData)
+      }
+  });
 });
 
 app.directive('stay', function(){
