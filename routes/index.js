@@ -38,7 +38,21 @@ router.get('/partials/:name', function (req, res){
 function getSerieData(data, game){
   var newSerie = [];
   //Serieinformation -> B2 till B*
+  var information = [];
+  var row = [];
+  var old = "2";
   var sheetinfo = data.Sheets["Information"];
+  for (z in sheetinfo) {
+    /* set the collums which should be ignored */
+    if(z[0] === '!') continue;
+      if(z.replace( /^\D+/g, '') !== old.replace( /^\D+/g, '')){
+        information.push(row);
+        row = [];
+      }
+    row.push(sheetinfo[z].v);
+    old = z;
+  }
+  console.log(information);
   //Standings
   var standings = [];
 
