@@ -10,7 +10,7 @@ block body
           div
             nav.navbar.navbar-default.navbar-fixed-top
               .navbar-header
-                a#menu-toggle.navbar-toggle(href="#")
+                a#menu-toggle.navbar-toggle
                     span.sr-only Toggle navigation
                     span.icon-bar
                     span.icon-bar
@@ -41,9 +41,10 @@ block body
                   li
                     a.stay(href="#old") Archiv
         #page-content
+          div(ng-view)
           
 
   script(type='text/javascript' src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js')
   script(type='text/javascript' src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
-  script(type='text/javascript' src='/javascripts/gsr.js')
+  script(type='text/javascript' src='/javascripts/xgsr.js')
   script(type='text/javascript' src='/javascripts/controller.js')

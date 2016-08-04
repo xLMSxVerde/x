@@ -6,14 +6,7 @@ body {
 
 a {
   outline: none;
-  background-color: #ab987a;
-  color: #0f1626;
-  border: none;
-  text-align: left;
   text-decoration: none;
-  display: block;
-  width: 100%;
-  text-indent: 10px;
 }
 
 a:visited,
@@ -21,7 +14,6 @@ a:hover,
 a:focus,
 a:active {
   text-decoration: none;
-
 }
 
 .navbar.navbar-default {
@@ -67,6 +59,16 @@ a:active {
   padding: 0;
 }
 
+.stay {
+  background-color: #ab987a;
+  color: #0f1626;
+  border: none;
+  text-align: left;
+  display: block;
+  width: 100%;
+  text-indent: 10px;
+}
+
 .stay:hover,
 .stay:focus,
 .stay:active {
@@ -85,9 +87,18 @@ a:active {
   transition: all 0.3s ease-out;
   margin-left: -200px;
 }
-@media (min-width: 768px) {
+
+#page-content {
+  margin-left: 0px;
+}
+
+@media (min-width: 751px) {
   #sidebar-wrapper.sidebar-toggle {
     transition: 0s;
     left: 200px;
+  }
+  #page-content {
+    margin-top: 50px;
+    margin-left: 185px;
   }
 }

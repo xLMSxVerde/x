@@ -11,7 +11,7 @@ app.config(function($routeProvider) {
     .when("/statView", {
         templateUrl : 'partials/statView'
     })
-    .when("/contView", {
+    .when("/old", {
         templateUrl : 'partials/old'
     })
     .otherwise({
