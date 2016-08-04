@@ -19,34 +19,31 @@ block body
               #sidebar-wrapper.sidebar-toggle
                 ul.sidebar-nav
                   li
-                    button.stay.enabled(href="#") Veranstaltungen
+                    a.stay.enabled(href="#events") Veranstaltungen
                   li
-                    button(href="#" data-toggle="collapse" data-target="#fList") Forza Motorsport
+                    a.stay(href="" data-toggle="collapse" data-target="#fList")
+                      | Forza Motorsport
+                      span.glyphicon.glyphicon-option-vertical
                     #fList.collapse
                       ul.sidebar-dropdown
-                        li
-                          button.stay Test
-                        li
-                          button.stay Test
-                        li
-                          button.stay Test
+                        li(ng-repeat="elements in navFM track by $index")
+                          a.stay(href="#fmView") {{elements}}
                   li
-                    button(href="#" data-toggle="collapse" data-target="#pList") Project Cars
+                    a.stay(href="" data-toggle="collapse" data-target="#pList")
+                      | Project Cars
+                      span.glyphicon.glyphicon-option-vertical
                     #pList.collapse
                       ul.sidebar-dropdown
-                        li
-                          button.stay Test
-                        li
-                          button.stay Test
-                        li
-                          button.stay Test
+                        li(ng-repeat="elements in navPC track by $index")
+                          a.stay(href="#pcView") {{elements}}
                   li
-                    button.stay(href="#") Statistiken
+                    a.stay(href="#statView") Statistiken
                   li
-                    button.stay(href="#") Archiv
+                    a.stay(href="#old") Archiv
         #page-content
+          
 
   script(type='text/javascript' src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js')
   script(type='text/javascript' src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
-  script(type='text/javascript' src='/javascripts/xgsr.js')
+  script(type='text/javascript' src='/javascripts/gsr.js')
   script(type='text/javascript' src='/javascripts/controller.js')
