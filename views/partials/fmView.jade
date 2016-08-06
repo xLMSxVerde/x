@@ -1,12 +1,13 @@
-div.row
-  div.col-md-4
+.row.radiorow
+  .col-md-4
     button.radios.radioenable(style="width: 100%") Informationen
-  div.col-md-8
+  .col-md-8
     button.radios(style="width: 50%") Rennergebnisse
     button.radios(style="width: 50%") Gesamtwertung
     
 div(ng-show="information")
-  .panel.panel-default(ng-repeat="titles in informationList track by $index")
-    .panel-heading {{titles[0]}}
-    ul.list-group
-      li.list-group-item(ng-repeat="items in titles track by $index" ng-if="$index > 0") {{items}}
+  .row
+    .panel(ng-repeat="titles in informationList track by $index")
+      .panel-heading {{titles[0]}}
+      ul.list-group
+        li.list-group-item(ng-repeat="items in titles track by $index" ng-if="$index > 0") {{items}}

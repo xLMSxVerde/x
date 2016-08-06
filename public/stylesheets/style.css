@@ -22,12 +22,12 @@ a:active {
 }
 
 .navbar.navbar-default {
-  color: #f5f5f5;
+  color: #fff;
   background-color: #0f1626;
 }
 
 .navbar-default .navbar-brand {
-  color: #f5f5f5;
+  color: #fff;
   background-color: #0f1626;
 }
 
@@ -55,7 +55,7 @@ a:active {
 
 .sidebar-nav li a:hover {
   background-color: #0f1626;
-  color: #f5f5f5;
+  color: #fff;
   border-right: 4px solid #ff533d;
 }
 
@@ -78,13 +78,13 @@ a:active {
 .stay:focus,
 .stay:active {
   background-color: #0f1626;
-  color: #f5f5f5;
+  color: #fff;
   border-right: 4px solid #ff533d;
 }
 
 .enabled {
   background-color: #0f1626;
-  color: #f5f5f5;
+  color: #fff;
   border-right: 4px solid #ff533d;
 }
 
@@ -104,6 +104,9 @@ a:active {
 .col-md-4,
 .col-md-8 {
   padding: 0px;
+}
+
+.radiorow {
   margin-bottom: 15px;
 }
 
@@ -112,36 +115,48 @@ a:active {
   background-color: #ab987a;
   line-height: 50px;
   border-style: none;
-  border-top: 4px solid #0f1626;
+  border-top: 4px solid #ab987a;
   border-bottom: 4px solid #ab987a;
 }
 
 .radios:hover,
 .radios:focus,
 .radios:active {
-  color: #f5f5f5;
+  color: #fff;
   background-color: #0f1626;
+  border-top: 4px solid #0f1626;
   border-bottom: 4px solid #ff533d;
 }
 
 .radioenable {
-  color: #f5f5f5;
+  color: #fff;
   background-color: #0f1626;
+  border-top: 4px solid #0f1626;
   border-bottom: 4px solid #ff533d;
 }
 
 /*Informationseite*/
 .panel {
+  width: 100%;
+  border: 1px solid #0f1626;
 }
 
+.panel-heading {
+  background-color: #0f1626;
+  color: #fff;
+}
 
-
-@media (min-width: 751px) {
+@media (min-width: 768px) {
   #sidebar-wrapper.sidebar-toggle {
     transition: 0s;
     left: 200px;
   }
   #page-content {
     margin-left: 215px;
+  }
+  .panel {
+    width: 48%;
+    display: inline-table;
+    margin: 1%;
   }
 }
