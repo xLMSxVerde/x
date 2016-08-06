@@ -27,7 +27,7 @@ block body
                     #fList.collapse
                       ul.sidebar-dropdown
                         li(ng-repeat="elements in navFM track by $index")
-                          a.stay(href="#fmView") {{elements}}
+                          a.stay(href="#fmView" ng-click="navForza($index)") {{elements}}
                   li
                     a.stay(href="" data-toggle="collapse" data-target="#pList")
                       | Project Cars

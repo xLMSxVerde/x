@@ -30,7 +30,9 @@ app.controller('page-ctrl', function($scope,$http) {
     method : "POST",
     url : ""
   }).then(function mySucces(response) {
-    // get NavData
+		fmData = response.data.fmData;
+		pcData = response.data.pcData;
+		// get NavData
     for(var i = 0; i <response.data.fmData.length; i++){
       navFM.push(response.data.fmData[i][0][0][1]);
     }
@@ -39,6 +41,19 @@ app.controller('page-ctrl', function($scope,$http) {
     }
     $scope.navFM = navFM;
     $scope.navPC = navPC;
+		$scope.navForza = function(expression) {
+				// var informationListTitle = [];
+				// var informationList = [];
+				// for(var i= 0; i<fmData[expression][0].length; i++){
+				// 	informationListTitle.push(fmData[expression][0][i][0])
+				// }
+				// for(var i= 0; i<fmData[expression][0].length; i++){
+				// 	informationList.push(fmData[expression][0][i].slice(1,fmData[expression][0].length))
+				// }
+				// $scope.informationListTitle = informationListTitle;
+				$scope.informationList = fmData[expression][0];
+				$scope.information = true;
+		}
   }, function myError(response) {
     alert("Something went wrong. Reload the page");
   });
