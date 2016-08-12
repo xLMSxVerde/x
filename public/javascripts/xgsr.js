@@ -2,17 +2,14 @@ var app = angular.module('xgsr', ["ngRoute"]);
 
 app.config(function($routeProvider) {
     $routeProvider
-    .when("/fmView", {
-        templateUrl : 'partials/fmView'
+    .when("/informations", {
+        templateUrl : 'partials/informations'
     })
-    .when("/pcView", {
-        templateUrl : 'partials/pcView'
+    .when("/results", {
+        templateUrl : 'partials/results'
     })
-    .when("/statView", {
-        templateUrl : 'partials/statView'
-    })
-    .when("/old", {
-        templateUrl : 'partials/old'
+    .when("/standings", {
+        templateUrl : 'partials/standings'
     })
     .otherwise({
         templateUrl : 'partials/events'

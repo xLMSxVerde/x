@@ -3,23 +3,19 @@ var router = express.Router();
 if(typeof require !== 'undefined') XLSX = require('xlsx');
 
 //Data objects
-var fmData = [];
-var pcData = [];
+var Data = [];
 
-var testcup = XLSX.readFile('public/data/fm/PorscheCup16.xlsm');
-getSerieData(testcup, "fm");
-getSerieData(testcup, "fm");
-getSerieData(testcup, "fm");
-getSerieData(testcup, "pc");
-getSerieData(testcup, "pc");
-getSerieData(testcup, "pc");
+var newCup = XLSX.readFile('public/data/fm/ToyotaCup16.xlsm');
+getSerieData(newCup);
+newCup = XLSX.readFile('public/data/fm/PorscheCup16.xlsm');
+getSerieData(newCup);
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index');
 });
 
 router.post('/', function(req, res, next) {
-  res.json({fmData: fmData, pcData: pcData});
+  res.json({Data: Data});
 });
 
 //*Get sideviews*/
@@ -28,7 +24,7 @@ router.get('/partials/:name', function (req, res){
   res.render('partials/' + name);
 });
 
-function getSerieData(data, game){
+function getSerieData(data){
   var newSerie = [];
   //Serieinformation -> B2 till B*
   var information = [];
@@ -125,15 +121,7 @@ function getSerieData(data, game){
   newSerie.push(standings);
 
   //Push all the data in the arrays
-  switch (game) {
-    case "fm":
-        fmData.push(newSerie);
-      break;
-    case "pc":
-        pcData.push(newSerie);
-      break;
-    default:
-  }
+  Data.push(newSerie);
 }
 
 module.exports = router;

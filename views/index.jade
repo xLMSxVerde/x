@@ -4,44 +4,40 @@ block body
   script(type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js")
   script(type='text/javascript' src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js")
   div(ng-app='xgsr' ng-controller='page-ctrl')
-    #wrapper
-      .container-fluid
-        #navbar
-          div
-            nav.navbar.navbar-default.navbar-fixed-top
-              .navbar-header
-                a#menu-toggle.navbar-toggle
-                    span.sr-only Toggle navigation
-                    span.icon-bar
-                    span.icon-bar
-                    span.icon-bar
-                a.navbar-brand(href="#") xGSR
-              #sidebar-wrapper.sidebar-toggle
-                ul.sidebar-nav
-                  li
-                    a.stay.enabled(href="#events") Veranstaltungen
-                  li
-                    a.stay(href="" data-toggle="collapse" data-target="#fList")
-                      | Forza Motorsport
-                      span.glyphicon.glyphicon-option-vertical
-                    #fList.collapse
-                      ul.sidebar-dropdown
-                        li(ng-repeat="elements in navFM track by $index")
-                          a.stay(href="#fmView" ng-click="navForza($index)") {{elements}}
-                  li
-                    a.stay(href="" data-toggle="collapse" data-target="#pList")
-                      | Project Cars
-                      span.glyphicon.glyphicon-option-vertical
-                    #pList.collapse
-                      ul.sidebar-dropdown
-                        li(ng-repeat="elements in navPC track by $index")
-                          a.stay(href="#pcView") {{elements}}
-                  li
-                    a.stay(href="#statView") Statistiken
-                  li
-                    a.stay(href="#old") Archiv
-        #page-content
-          div(ng-view)
+    nav.navbar.navbar-fixed-top
+      .container
+        .navbar-header
+          button.navbar-toggle(type="button" data-toggle="collapse" data-target="#myNavbar")
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href="#") GSRx
+        #myNavbar.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li.dropdown
+              a.dropdown-toggle(data-toggle="dropdown" href="#") 
+                | Porsche Cup 
+                span.caret
+              ul.dropdown-menu
+                li
+                  a(href="#") Informationen
+                li
+                  a(href="#") Rennergebnisse
+                li
+                  a(href="#") Wertungen
+            li.dropdown
+              a.dropdown-toggle(data-toggle="dropdown" href="#") 
+                | Toyota Cup 
+                span.caret
+              ul.dropdown-menu
+                li
+                  a(href="#") Informationen
+                li
+                  a(href="#") Rennergebnisse
+                li
+                  a(href="#") Wertungen
+    #page-content.container
+      div(ng-view)
           
 
   script(type='text/javascript' src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js')
