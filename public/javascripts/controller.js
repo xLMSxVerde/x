@@ -2,33 +2,49 @@ var data = [];
 var nav = [];
 
 app.controller('page-ctrl', function($scope,$http) {
-  $scope.eventsView = true;
-  $scope.infoView = false;
-  $scope.resultsView = false;
-  $scope.standingsView = false;
   $http.post("").then(function (response) {
   	data = response.data.Data;
+    // NavBar
     for(i = 0; i < data.length; i++){
       nav.push(data[i][0][0][1]);
     }
-  	console.log(nav);
     $scope.nav = nav;
-    document.getElementById("myNavbar").style.visibility = "visible";
 
+    // InfoSide
     $scope.info = function(expression) {
-      console.log("info " + expression);
+      $scope.infoA = data[expression][0];
+      $scope.eventsView = false;
+      $scope.infoView = true;
+      $scope.resultsView = false;
+      $scope.standingsView = false;
     }
+
+    // Button for Raceresults
     $scope.results = function(expression) {
-      console.log("results " + expression);
+      $scope.btnRaces = data[expression][1];
+
+      //ResultSide
+      $scope.getResults = function(index) {
+          $scope.raceResults = data[expression][1][index];
+          $scope.raceResultView = true;
+      }
+      $scope.eventsView = false;
+      $scope.infoView = false;
+      $scope.resultsView = true;
+      $scope.standingsView = false;
     }
+
+    //StandingSide
     $scope.standings = function(expression) {
-      console.log("standings " + expression);
+      console.log(data[expression]);
+      $scope.eventsView = false;
+      $scope.infoView = false;
+      $scope.resultsView = false;
+      $scope.standingsView = true;
     }
+    document.getElementById("page-content").style.visibility = "visible";
+    document.getElementById("myNavbar").style.visibility = "visible";
   });
-});
-
-app.controller('select-ctrl', function($scope,$http) {
-
 });
 
 app.directive('stay', function(){
