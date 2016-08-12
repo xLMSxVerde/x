@@ -8,31 +8,34 @@ a {
   text-decoration: none;
   color: #fff;
 }
+
 /*navbar design*/
 nav {
   background-color: #0a1612;
 }
 
 .navbar-brand {
-  font-size: 36px;
+  color: #f7ce3e;
 }
+
 .dropdown-menu {
   background-color: #0a1612;
 }
 
-.dropdown-menu>li>a {
+.dropdown-menu>li>button {
   color: #fff;
+  background-color: #0a1612;
+  border: none;
+  width: 100%;
+  height: 40px;
 }
 
-.dropdown-menu>li>a:focus,
-.dropdown-menu>li>a:hover {
+.dropdown-menu>li>button:focus,
+.dropdown-menu>li>button:hover,
+.dropdown-menu>li>button:active {
+  outline: none;
   background-color: #f7ce3e;
   color: #0a1612;
-}
-
-
-.dropdown-toggle {
-  font-size: 24px;
 }
 
 .nav .open>a,

@@ -9,6 +9,7 @@ var newCup = XLSX.readFile('public/data/fm/ToyotaCup16.xlsm');
 getSerieData(newCup);
 newCup = XLSX.readFile('public/data/fm/PorscheCup16.xlsm');
 getSerieData(newCup);
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index');
@@ -16,12 +17,6 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
   res.json({Data: Data});
-});
-
-//*Get sideviews*/
-router.get('/partials/:name', function (req, res){
-  var name = req.params.name;
-  res.render('partials/' + name);
 });
 
 function getSerieData(data){
