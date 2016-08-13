@@ -106,7 +106,7 @@ nav {
   margin: 1%;
 }
 
-.raceTable {
+.Table {
   width:100%;
   background-color: #0a1612;
 }
@@ -135,6 +135,11 @@ td,th {
 .btnStandings:active {
   background-color: #0a1612;
   color: #f7ce3e;
+}
+
+.selectStanding {
+  text-align: center;
+  margin: 1%;
 }
 
 /*tablet*/

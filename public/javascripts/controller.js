@@ -36,7 +36,16 @@ app.controller('page-ctrl', function($scope,$http) {
 
     //StandingSide
     $scope.standings = function(expression) {
-      console.log(data[expression]);
+      $scope.getdriverStanding = function() {
+          $scope.Standing = data[expression][2][0];
+          $scope.standingteamResultView = false;
+          $scope.standingdriverResultView = true;
+      }
+      $scope.getteamStanding = function() {
+          $scope.Standing = data[expression][2][1];
+          $scope.standingdriverResultView = false;
+          $scope.standingteamResultView = true;
+      }
       $scope.eventsView = false;
       $scope.infoView = false;
       $scope.resultsView = false;

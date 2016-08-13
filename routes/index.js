@@ -36,7 +36,7 @@ function getSerieData(data){
   }
 
 
-  //Standings
+  //Results
   //zum Test
   row = [];
   old = "1";
@@ -63,23 +63,45 @@ function getSerieData(data){
       result = [];
     }
   }
-  console.log(results);
-  //Results
-  var standings = [
-    ["Fahrer",          "Punkte", "R1", "R2", "R3" ],
-    ["xLMSxVerde",      "40", "20", "20", "-"],
-    ["GSR Agroh3knie",  "30", "10", "20", "-"],
-    ["GSR RKC75",       "30", "15", "15", "-"],
-    ["BlubbelDieMango", "30", "15", "15", "-"],
-    ["SPisch",          "30", "15", "15", "-"],
-    ["Chrissi VFB",     "25", "10", "15", "-"],
-    ["GSR Tobination",  "20", "10", "10", "-"],
-    ["xLMSxVerde",      "20", "10", "10", "-"],
-    ["xLMSxVerde",      "10", "-", "20", "-"],
-    ["xLMSxVerde",      "10", "10", "-", "-"]
-  ];
+  //Standings
+  var standings = [];
+  //DriverStanding
+  row = [];
+  old="2";
+  var driverStanding = [];
+  var standing = data.Sheets["Fahrerwertung"];
+  for (z in standing) {
+    /* set the collums which should be ignored */
+    if(z[0] === '!') continue;
+      if(z.replace( /^\D+/g, '') !== old.replace( /^\D+/g, '')){
+        if(row[1] != 0) {
+          driverStanding.push(row);
+        }
+        row = [];
+      }
+    row.push(standing[z].w);
+    old = z;
+  }
+  standings.push(driverStanding);
 
-
+  //TeamStanding
+  row = [];
+  old="2";
+  var teamStanding = [];
+  var standing = data.Sheets["Teamwertung"];
+  for (z in standing) {
+    /* set the collums which should be ignored */
+    if(z[0] === '!') continue;
+      if(z.replace( /^\D+/g, '') !== old.replace( /^\D+/g, '')){
+        if(row[2] != 0) {
+          teamStanding.push(row);
+        }
+        row = [];
+      }
+    row.push(standing[z].w);
+    old = z;
+  }
+  standings.push(teamStanding);
 
   //create array of new Serie
   newSerie.push(information);
