@@ -22,7 +22,7 @@ app.controller('page-ctrl', function($scope,$http) {
     // Button for Raceresults
     $scope.results = function(expression) {
       $scope.btnRaces = data[expression][1];
-
+      $scope.raceResultView = false;
       //ResultSide
       $scope.getResults = function(index) {
           $scope.raceResults = data[expression][1][index];
@@ -36,15 +36,18 @@ app.controller('page-ctrl', function($scope,$http) {
 
     //StandingSide
     $scope.standings = function(expression) {
-      $scope.getdriverStanding = function() {
-          $scope.Standing = data[expression][2][0];
-          $scope.standingteamResultView = false;
-          $scope.standingdriverResultView = true;
-      }
-      $scope.getteamStanding = function() {
-          $scope.Standing = data[expression][2][1];
-          $scope.standingdriverResultView = false;
-          $scope.standingteamResultView = true;
+      $scope.btnStanding = data[expression][2];
+      $scope.standingteamResultView = false;
+      $scope.standingdriverResultView = false;
+      $scope.getStanding = function(index) {
+          $scope.Standing = data[expression][2][index];
+          if(index == 0){
+            $scope.standingteamResultView = false;
+            $scope.standingdriverResultView = true;
+          }else if (index == 1) {
+            $scope.standingteamResultView = true;
+            $scope.standingdriverResultView = false;
+          }
       }
       $scope.eventsView = false;
       $scope.infoView = false;

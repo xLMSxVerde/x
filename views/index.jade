@@ -75,17 +75,16 @@ block body
         
       div(ng-show='standingsView')
         .selectStanding
-          button.btnStandings(type="button" ng-click="getdriverStanding()") Fahrerwertung
-          button.btnStandings(type="button" ng-click="getteamStanding()") Teamwertung
-        
+          button.btnStandings(ng-repeat="items in btnStanding track by $index" type="button" ng-click="getStanding($index)") {{items[0][0]}}
+          
         div#StandingView(ng-show='standingdriverResultView')
           table.Table
             tr
-              th(style="color:#cccccc") {{Standing[0][0]}}
-              th(style="color:#cccccc") {{Standing[0][1]}}
-              th.gone(style="color:#cccccc" ng-repeat="items in Standing[0] track by $index" ng-if="$index>2") {{items}}
-              th(style="color:#cccccc") {{Standing[0][2]}}
-            tr(ng-repeat="items in Standing track by $index" ng-if="$index>0")
+              th(style="color:#cccccc") {{Standing[1][0]}}
+              th(style="color:#cccccc") {{Standing[1][1]}}
+              th.gone(style="color:#cccccc" ng-repeat="items in Standing[1] track by $index" ng-if="$index>2") {{items}}
+              th(style="color:#cccccc") {{Standing[1][2]}}
+            tr(ng-repeat="items in Standing track by $index" ng-if="$index>1")
               td(style="color:#00ffff") {{items[0]}}
               td {{items[1]}}
               td.gone(style="color:#f7ce3e" ng-repeat="item in items track by $index" ng-if="$index>2") {{item}}
@@ -95,12 +94,12 @@ block body
         div#StandingView(ng-show='standingteamResultView')
           table.Table
             tr
-              th(style="color:#cccccc") {{Standing[0][0]}}
-              th(style="color:#cccccc") {{Standing[0][1]}}
-              th(style="color:#cccccc") {{Standing[0][2]}}
-              th.gone(style="color:#cccccc" ng-repeat="items in Standing[0] track by $index" ng-if="$index>3") {{items}}
-              th(style="color:#cccccc") {{Standing[0][3]}}
-            tr(ng-repeat="items in Standing track by $index" ng-if="$index>0")
+              th(style="color:#cccccc") {{Standing[1][0]}}
+              th(style="color:#cccccc") {{Standing[1][1]}}
+              th(style="color:#cccccc") {{Standing[1][2]}}
+              th.gone(style="color:#cccccc" ng-repeat="items in Standing[1] track by $index" ng-if="$index>3") {{items}}
+              th(style="color:#cccccc") {{Standing[1][3]}}
+            tr(ng-repeat="items in Standing track by $index" ng-if="$index>1")
               td(style="color:#00ffff") {{items[0]}}
               td {{items[1]}}
               td.gone {{items[2]}}
